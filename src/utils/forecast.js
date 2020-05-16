@@ -23,6 +23,8 @@ const forecast = (longitude, latitude, callback) =>{
                 callback(undefined,{
                     temprature: response.body.current.temperature
                     ,feelslike: response.body.current.feelslike
+                    ,wind_speed: response.body.current.wind_speed
+                    ,cloudcover: response.body.current.cloudcover
                 })
             }
             // console.log(response.body)

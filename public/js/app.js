@@ -13,6 +13,8 @@ const searchLocation = document.querySelector('input')
 const locationResult = document.querySelector('#locationName')
 const feelslikeResult = document.querySelector('#feelslike')
 const tempratureResult = document.querySelector('#temprature')
+const wind_speedResult = document.querySelector('#wind_speed')
+const cloudcoverResult = document.querySelector('#cloudcover')
 
 weatherForm.addEventListener('submit', (e)=>{
 
@@ -32,6 +34,8 @@ weatherForm.addEventListener('submit', (e)=>{
                 locationResult.textContent = data.location
                 feelslikeResult.textContent = data.feelslike
                 tempratureResult.textContent = data.temprature
+                wind_speedResult.textContent = data.wind_speed
+                cloudcoverResult.textContent = data.cloudcover
             }
             // console.log(data)
         })

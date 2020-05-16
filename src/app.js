@@ -53,11 +53,11 @@ app.get('/weather',(req, res) => {
             errorText: 'Address Is a required Value'
         })
     }
-    getWeather(req.query.address.toString(), (error, {location,temprature, feelslike}={}) =>{
+    getWeather(req.query.address.toString(), (error, {location,temprature, feelslike, wind_speed, cloudcover}={}) =>{
         if(error) {
             return res.send({error})
         }
-        res.send({location,temprature, feelslike})
+        res.send({location,temprature, feelslike, wind_speed, cloudcover})
     })
 })
 
@@ -67,7 +67,7 @@ const getWeather = (passedlocation, callback) => {
             console.log(error)
             return callback (error, undefined)
         }
-        forecast(longitude, latitude, (error, {temprature, feelslike}={}) => {
+        forecast(longitude, latitude, (error, {temprature, feelslike, wind_speed, cloudcover}={}) => {
             if(error){
                 console.log(error)
                 return callback (error, undefined)
@@ -75,7 +75,9 @@ const getWeather = (passedlocation, callback) => {
             callback (undefined, {
                 location: location,
                 temprature: temprature,
-                feelslike: feelslike
+                feelslike: feelslike,
+                wind_speed:wind_speed,
+                cloudcover:cloudcover
             })
         })
     })
