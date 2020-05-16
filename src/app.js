@@ -14,6 +14,8 @@ const hbsPartialsPath = path.join(__dirname, "../templates/partials")
 
 const app = express()
 
+const port = process.env.PORT || 3000
+
 app.set("view engine", 'hbs')
 app.set('views',hbsViewsPath)
 
@@ -110,6 +112,6 @@ const getAbout = () => {
     return '<h>This is a Weather App</h>'
 }
 
-app.listen(4000, ()=>{
-    console.log('Server has started')
+app.listen(port, ()=>{
+    console.log('Server has started ' + port)
 })
